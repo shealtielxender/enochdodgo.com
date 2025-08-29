@@ -1,0 +1,52 @@
+/* Styles for the circular logo */
+.logo-container {
+    width: 80px;  /* Set the desired diameter for your circle */
+    height: 80px; /* Must be equal to width for a perfect circle */
+    border-radius: 50%; /* Makes the container a perfect circle */
+    overflow: hidden; /* Crucial: Hides any part of the image that extends outside the circle */
+    display: flex; /* Use flexbox to easily center the image */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    flex-shrink: 0; /* Prevents the logo from shrinking on smaller screens */
+
+    /* Optional: Add a border or shadow for extra flair */
+    border: 2px solid #fff; /* White border */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    background-color: #f0f0f0; /* Optional: A fallback background color */
+
+    /* Adjust margin/positioning as needed for your header layout */
+    margin-right: 20px; /* Example: space from navigation */
+}
+
+.logo-container img {
+    width: 100%; /* Make the image fill the container's width */
+    height: 100%; /* Make the image fill the container's height */
+    object-fit: cover; /* This is the key property! */
+                         /* It scales the image to fill the container, cropping any excess. */
+                         /* This maintains the image's aspect ratio and ensures it covers the circle. */
+    display: block; /* Removes any extra space below the image (common for img tags) */
+}
+
+/* Example: Basic header layout to see the logo in context */
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #f39c12;
+}

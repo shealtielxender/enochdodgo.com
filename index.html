@@ -47,6 +47,11 @@
             padding: 1rem;
              
         }
+.nav-link.active {
+    border-bottom: 2px solid #0d9488;
+    color: #0d9488;
+    font-weight: 600;
+}
     </style>
 </head>
 <body class="leading-relaxed">
@@ -280,6 +285,36 @@
     </div>
 
     <script>
+
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('header a[href^="#"]');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${id}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, {
+        rootMargin: '-50% 0px -50% 0px'
+    });
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+});
+
+
+        
         document.addEventListener('DOMContentLoaded', () => {
             const projectButtons = document.querySelectorAll('.project-btn');
             const projectContents = document.querySelectorAll('.project-content');
@@ -325,6 +360,7 @@
 
 </body>
 </html>
+
 
 
 
